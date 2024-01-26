@@ -2,6 +2,7 @@
 // "use client";
 import { useState, useEffect } from "react";
 import { get, post, put, patch, remove } from "../lib/action";
+import { Token } from "./component";
 
 const STUDENT_ENDPOINT = "student";
 
@@ -20,7 +21,7 @@ const StudentPage: React.FC = () => {
         const data = await get(STUDENT_ENDPOINT);
         setStudents(data.data); // Assuming your API response has a 'data' property
       } catch (error) {
-        console.error("Error fetching students", error);
+        console.error("Error fetching students  - " + Token, error);
       }
     };
     fetchStudents();
